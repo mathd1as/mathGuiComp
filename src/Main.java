@@ -1,9 +1,13 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         if(args[0].equals("mathgui")) {
             String nomeArquivo = args[1];
 
@@ -14,6 +18,12 @@ public class Main {
                 return;
             }
 
+            List<String> palavrasReservadas = Arrays.asList("int", "float", "bool", "if", "else", "default", "for",
+                    "while", "scan", "print");
+            List<String> simbolos = Arrays.asList("(",")","{","}","=",":","=");
+            List<String> operadores = Arrays.asList("&&","||","==","<=","<",">=",">","!="); //Adicionar ++ e -- na especificação
+
+            AnalisadorLexico lexico = new AnalisadorLexico(arquivo, palavrasReservadas, simbolos, operadores);
 
         }
     }

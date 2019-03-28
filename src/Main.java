@@ -20,7 +20,7 @@ public class Main {
 
             List<String> palavrasReservadas = Arrays.asList("int", "float", "bool", "if", "else", "default", "for",
                     "while", "scan", "print");
-            List<String> simbolos = Arrays.asList("(",")","{","}","=",":","=");
+            List<String> simbolos = Arrays.asList("(",")","{","}","=",":","=",";");
             List<String> operadores = Arrays.asList("&&","||","==","<=","<",">=",">","!=","++","--"); //Adicionar ++ e -- na especificação
 
             AnalisadorLexico lexico = new AnalisadorLexico(arquivo, palavrasReservadas, simbolos, operadores);

@@ -107,8 +107,34 @@ public class AnalisadorLexico {
     }
 
     private Token encontrarSimbolos() throws IOException {
-        Token simbolo = new Token("Simbolo", "", this.linha);
         String proxSimbolo = String.valueOf(this.lerCaracter());
+        Token simbolo = null;
+        switch(proxSimbolo){
+            case "(":
+                simbolo = new Token("Abre Parenteses", "", this.linha);
+                break;
+            case ")":
+                simbolo = new Token("Fecha Parenteses", "", this.linha);
+                break;
+            case "{":
+                simbolo = new Token("Abre Chaves", "", this.linha);
+                break;
+            case "}":
+                simbolo = new Token("Fecha Chaves", "", this.linha);
+                break;
+            case ";":
+                simbolo = new Token("Ponto e Virgula", "", this.linha);
+                break;
+            case ":":
+                simbolo = new Token("Doi Pontos", "", this.linha);
+                break;
+            case ",":
+                simbolo = new Token("Virgula", "", this.linha);
+                break;
+             default:
+                 //Alguma tratamento de erro aqui posteriormente
+        }
+        
         if (this.simbolos.contains(proxSimbolo)) {
             simbolo.setValor(proxSimbolo);
         }
@@ -125,6 +151,10 @@ public class AnalisadorLexico {
             atual = atual + proxOperador;
         } else {
             this.bufferInputStream.reset();
+        }
+
+        if(atual.equals("=")){
+            operador.setAtributo("Atribuiçao");
         }
 
         operador.setValor(String.valueOf(atual));

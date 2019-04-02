@@ -1,7 +1,5 @@
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,15 +17,23 @@ public class Main {
             }
 
             List<String> palavrasReservadas = Arrays.asList("int", "float", "bool", "if", "else", "default", "for",
-                    "while", "scan", "print");
-            List<String> simbolos = Arrays.asList("(",")","{","}","=",":","=",";");
-            List<String> operadores = Arrays.asList("&&","||","==","<=","<",">=",">","!=","++","--"); //Adicionar ++ e -- na especificação
+                    "while", "scan", "print","case", "switch","break");
+            List<String> simbolos = Arrays.asList("(",")","{","}","=",":",";",",");
+            List<String> operadores = Arrays.asList("&&","||","==","<=","<",">=",">","!=","++","--");
 
             AnalisadorLexico lexico = new AnalisadorLexico(arquivo, palavrasReservadas, simbolos, operadores);
-            List<Token> toknes = lexico.analisar();
+            List<Token> tokens = lexico.analisar();
 
-            for (int i=0;i < toknes.size(); i++)
-                System.out.println(toknes.get(i).getValor());
+            for (int i=0;i < tokens.size(); i++){
+                System.out.println("Atributo: "+tokens.get(i).getAtributo());
+                System.out.println("Valor: "+tokens.get(i).getValor());
+                System.out.println("Linha: "+tokens.get(i).getLinha());
+                if(tokens.get(i).getErro() != ""){
+                    System.out.println("Erro msg: "+tokens.get(i).getErro());
+                }
+                System.out.println();
+            }
+
         }
     }
 }

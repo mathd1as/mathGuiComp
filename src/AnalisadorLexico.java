@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -92,7 +87,6 @@ public class AnalisadorLexico {
         } else if (!palavra.equals("\uffff")) {
             token = this.erroStatment(palavra);
         }
-
         return token;
     }
 
@@ -132,7 +126,7 @@ public class AnalisadorLexico {
                 simbolo = new Token("Virgula", "", this.linha);
                 break;
              default:
-                 //Alguma tratamento de erro aqui posteriormente
+                 //Algum tratamento de erro aqui posteriormente
         }
         
         if (this.simbolos.contains(proxSimbolo)) {
@@ -173,7 +167,6 @@ public class AnalisadorLexico {
             palavraReservada.setValor(valor);
             palavraReservada.setAtributo("id");
         }
-
         return palavraReservada;
     }
 
@@ -208,7 +201,6 @@ public class AnalisadorLexico {
                 break;
             }
         }
-
         return valor;
     }
 }

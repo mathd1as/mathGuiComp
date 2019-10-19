@@ -18,14 +18,15 @@ public class AnalisadorSintatico {
         entrada.push("$");
         //Erro ta aqui...
         for (int i = tokens.size() -1  ; i >= 0; i--) {
-            System.out.println(entrada.retornaTopo());
-            System.out.println(tokens.get(i).getValor());
 
-            entrada.push(tokens.get(i).getValor());
+            if(tokens.get(i).getAtributo().equals("var")){
+                entrada.push("var");
+            }else if(tokens.get(i).getAtributo().equals("id")){
+                entrada.push("id");
+            }else{
+                entrada.push(tokens.get(i).getValor());
+            }
         }
-
-        System.out.println("ultimo token: "+tokens.get(0).getValor());
-        System.out.println("Entrada topo: "+entrada.retornaTopo());
 
         /*while(!entrada.pilhaVazia()){
             System.out.println(entrada.retornaTopo());
@@ -37,24 +38,28 @@ public class AnalisadorSintatico {
         tabela.inicializaTabela();
 
         while (true) {
+            System.out.println("pilha: "+pilha.retornaTopo()+" entrada "+ entrada.retornaTopo());
             if (pilha.retornaTopo() == "$" && entrada.retornaTopo() == "$") {
                 System.out.println("Sentenca Aceita");
                 break;
             }
 
-            if (pilha.retornaTopo() == entrada.retornaTopo()) {
+            if (pilha.retornaTopo().equals(entrada.retornaTopo()) || pilha.retornaTopo().contains(entrada.retornaTopo())) {
+                System.out.println("desempilhou pilha "+ pilha.retornaTopo());
                 pilha.pop();
+                System.out.println("desempilhou entrada "+entrada.retornaTopo());
                 entrada.pop();
+
             } else {
                 String sentenca = tabela.buscaSentenca(pilha.retornaTopo(), entrada.retornaTopo());
-
                 if (sentenca.equals("ERRO_Deu_pau.txt_socorro")) {
                     System.out.println(sentenca);
                     break;
                 } else {
+                    System.out.println("desempilhou "+pilha.retornaTopo());
                     pilha.pop();
-                    int tam = 0;
 
+                    int tam = 0;
                     for (int i = 0; i < sentenca.length(); i++) {
                         char ch = sentenca.charAt(i);
                         String x1 = String.valueOf(ch);
@@ -64,19 +69,19 @@ public class AnalisadorSintatico {
                         }
                     }
                     if (tam == 0) {
+                        System.out.println("empilhou pilha "+sentenca);
                         pilha.push(sentenca);
                     } else {
                         String[] aux = new String[tam];
                         aux = sentenca.split(" ");
 
-                        for (int i = tam - 1; i >= 0; i--) {
-                           pilha.push(aux[i]);
-                            System.out.println(aux[i]+" ");
+                        for (int i = tam; i >= 0; i--) {
+                            System.out.println("empilhou pilha "+aux[i]);
+                            pilha.push(aux[i]);
                         }
                     }
                 }
             }
-            break;
         }
 
     }

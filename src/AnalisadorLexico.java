@@ -163,7 +163,10 @@ public class AnalisadorLexico {
         if (this.palavrasReservadas.contains(valor)) {
             palavraReservada.setValor(valor);
             palavraReservada.setAtributo("Palavra Reservada");
-        } else {
+        }else if(!Character.isDigit(valor.charAt(0))) {
+            palavraReservada.setValor(valor);
+            palavraReservada.setAtributo("var");
+        }else {
             palavraReservada.setValor(valor);
             palavraReservada.setAtributo("id");
         }

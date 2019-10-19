@@ -4,7 +4,7 @@ public class TabelaPreditiva {
     private String[][] tabela;
 
     public TabelaPreditiva() {
-        this.tabela = new String[20][25];
+        this.tabela = new String[23][31];
     }
 
     public void inicializaTabela() throws IOException {
@@ -30,6 +30,8 @@ public class TabelaPreditiva {
         this.tabela[17][0] = "<cmd_else>";
         this.tabela[18][0] = "<for_stmt>";
         this.tabela[19][0] = "<while_stmt>";
+        this.tabela[20][0] = "<atribuicao>_'";
+        this.tabela[21][0] = "<atribuicao>_'2";
 
         this.tabela[0][1] = "id";
         this.tabela[0][2] = "var";
@@ -55,6 +57,11 @@ public class TabelaPreditiva {
         this.tabela[0][22] = "==";
         this.tabela[0][23] = "!=";
         this.tabela[0][24] = "$";
+        this.tabela[0][25] = ">";
+        this.tabela[0][26] = "<";
+        this.tabela[0][27] = ">=";
+        this.tabela[0][28] = "<=";
+        this.tabela[0][29] = "=";
 
         //<program>
         this.tabela[1][3] = "<stmt_list>";
@@ -66,6 +73,7 @@ public class TabelaPreditiva {
         this.tabela[1][9] = "<stmt_list>";
 
         //<<stmt_list>>
+        this.tabela[2][2] = "<stmt> ; <stmt_list>_'";
         this.tabela[2][3] = "<stmt> ; <stmt_list>_'";
         this.tabela[2][4] = "<stmt> ; <stmt_list>_'";
         this.tabela[2][5] = "<stmt> ; <stmt_list>_'";
@@ -74,6 +82,7 @@ public class TabelaPreditiva {
         this.tabela[2][9] = "<stmt> ; <stmt_list>_'";
 
         //<stmt_list>_'
+        this.tabela[3][2] = "<stmt_list>";
         this.tabela[3][3] = "<stmt_list>";
         this.tabela[3][4] = "<stmt_list>";
         this.tabela[3][5] = "<stmt_list>";
@@ -83,6 +92,7 @@ public class TabelaPreditiva {
         this.tabela[3][9] = "$";
 
         //<stmt>
+        this.tabela[4][2] = "<declara_var>";
         this.tabela[4][3] = "<declara_var>";
         this.tabela[4][4] = "<declara_var>";
         this.tabela[4][5] = "<declara_var>";
@@ -94,7 +104,12 @@ public class TabelaPreditiva {
         this.tabela[5][1] = "<id> <op_logico> <id>";
 
         //<op_logico>
+        this.tabela[6][22] = "==";
         this.tabela[6][23] = "!=";
+        this.tabela[6][25] = ">";
+        this.tabela[6][26] = "<";
+        this.tabela[6][27] = ">=";
+        this.tabela[6][28] = "<=";
 
         //<exp>
         this.tabela[7][1] = "<id> <exp_'>";
@@ -150,6 +165,12 @@ public class TabelaPreditiva {
 
         //<while_stmt>
         this.tabela[19][9] = "while ( <exp_logica> ) { <stmt> }";
+
+        //<atribuicao>_'
+        this.tabela[20][29] = "= <atribuicao>_'2";
+
+        //<atribuicao>_'2
+        this.tabela[21][1] = "<id>";
 
     }
 

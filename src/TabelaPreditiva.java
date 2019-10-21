@@ -50,10 +50,10 @@ public class TabelaPreditiva {
         this.tabela[36][0] = "<op_aritmetico>";
 
         //termianis
-        this.tabela[0][1] = "id";
-        this.tabela[0][2] = "natural";
-        this.tabela[0][3] = "real";
-        this.tabela[0][4] = "var";
+        this.tabela[0][1] = "<id>";
+        this.tabela[0][2] = "<natural>";
+        this.tabela[0][3] = "<real>";
+        this.tabela[0][4] = "<var>";
         this.tabela[0][5] = "int";
         this.tabela[0][6] = "float";
         this.tabela[0][7] = "bool";
@@ -174,7 +174,7 @@ public class TabelaPreditiva {
         this.tabela[14][20] = ", <var> <instancia_bool> <mais_var_bool>";
 
         //<if_stmt>
-        this.tabela[15][8] = "if ( <exp_relacional> <opt> ) { <stmt> } <cmd_else_if> <cmd_else>";
+        this.tabela[15][8] = "if ( <exp_relacional> <opt> ) { <stmt> } <cmd_elif> <cmd_else>";
 
         //<opt>
         this.tabela[16][17] = "ε";
@@ -184,6 +184,7 @@ public class TabelaPreditiva {
         //<cmd_elif>
         this.tabela[17][9] = "ε";
         this.tabela[17][10] = "elif ( <exp_relacional> <opt>) { <stmt> } <cmd_elif>";
+        this.tabela[17][34] = "ε";
 
         //<cmd_else>
         this.tabela[18][4] = "ε";
@@ -197,6 +198,7 @@ public class TabelaPreditiva {
         this.tabela[18][13] = "ε";
         this.tabela[18][14] = "ε";
         this.tabela[18][18] = "ε";
+        this.tabela[18][34] = "ε";
 
         //<atribui>
         this.tabela[19][4] = "<var> = <atribui_2> ;";

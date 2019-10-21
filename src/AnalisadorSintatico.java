@@ -20,13 +20,13 @@ public class AnalisadorSintatico {
         for (int i = tokens.size() -1  ; i >= 0; i--) {
 
             if(tokens.get(i).getAtributo().equals("var")){
-                entrada.push("var");
+                entrada.push("<var>");
             }else if(tokens.get(i).getAtributo().equals("id")){
-                entrada.push("id");
+                entrada.push("<id>");
             }else if(tokens.get(i).getAtributo().equals("int")){
-                entrada.push("natural");
+                entrada.push("<natural>");
             }else if(tokens.get(i).getAtributo().equals("float")){
-                entrada.push("real");
+                entrada.push("<real>");
             }else{
                 entrada.push(tokens.get(i).getValor());
             }
@@ -52,7 +52,7 @@ public class AnalisadorSintatico {
                 pilha.pop();
             }
 
-            if (pilha.retornaTopo().equals(entrada.retornaTopo()) || pilha.retornaTopo().contains(entrada.retornaTopo())) {
+            if (pilha.retornaTopo().equals(entrada.retornaTopo()) || pilha.retornaTopo().equals(entrada.retornaTopo())) {
                 System.out.println("desempilhou pilha "+ pilha.retornaTopo());
                 pilha.pop();
                 System.out.println("desempilhou entrada "+entrada.retornaTopo());
@@ -86,6 +86,7 @@ public class AnalisadorSintatico {
                         aux = sentenca.split(" ");
 
                         for (int i = tam; i >= 0; i--) {
+
                             System.out.println("empilhou pilha "+aux[i]);
                             pilha.push(aux[i]);
                         }

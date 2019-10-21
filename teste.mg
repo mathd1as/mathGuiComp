@@ -1,10 +1,6 @@
-int a;
-a = 0;
+int a = 0;
+int b = 5;
 
+if(a == b){
 
-int b;
-b = 0;
-
- if(a == b){
-
- }
+}

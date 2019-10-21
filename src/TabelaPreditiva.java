@@ -224,7 +224,7 @@ public class TabelaPreditiva {
         this.tabela[24][7] = "bool";
 
         //<print>
-        this.tabela[25][13] = "print ( <print_stmt> ) ;";
+        this.tabela[25][14] = "print ( <print_stmt> ) ;";
 
         //<print_stmt>
         this.tabela[26][4] = "<var> <print_stmt_2>";
@@ -244,11 +244,14 @@ public class TabelaPreditiva {
 
         //<qual>
         this.tabela[30][1] = "<id>";
+        //Adiconei <natural> pq antes ele so derivava para id, como tratamos os numeros como naturais e neste campo
+        //e esperado um int nao e nescessario ter um id que siguinifica qlq coisa
+        this.tabela[30][2] = "<natural>";
         this.tabela[30][4] = "<var>";
 
         //<op_relacional>
         this.tabela[31][21] = ">";
-        this.tabela[31][22] = ">";
+        this.tabela[31][22] = "<";
         this.tabela[31][23] = ">=";
         this.tabela[31][24] = "<=";
         this.tabela[31][25] = "==";
@@ -263,6 +266,7 @@ public class TabelaPreditiva {
 
         //<exp>
         this.tabela[34][1] = "<qual> <exp_2>";
+        this.tabela[34][2] = "<qual> <exp_2>";
         this.tabela[34][4] = "<qual> <exp_2>";
 
         //<exp_2>

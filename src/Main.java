@@ -17,7 +17,7 @@ public class Main {
             }
 
             List<String> palavrasReservadas = Arrays.asList("int", "float", "bool", "if", "else", "for",
-                    "while");
+                    "while", "print", "scan");
             List<String> simbolos = Arrays.asList("(",")","{","}","=",":",";",",");
             List<String> operadores = Arrays.asList("&&","||","==","<=","<",">=",">","!=","++","--");
 

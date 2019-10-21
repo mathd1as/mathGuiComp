@@ -27,7 +27,11 @@ public class AnalisadorSintatico {
                 entrada.push("<natural>");
             }else if(tokens.get(i).getAtributo().equals("float")){
                 entrada.push("<real>");
-            }else{
+            }else if(tokens.get(i).getValor().equals("print")){
+                entrada.push("print");
+            }else if(tokens.get(i).getValor().equals("scan")){
+                entrada.push("<scan>");
+            } else {
                 entrada.push(tokens.get(i).getValor());
             }
         }
@@ -42,14 +46,14 @@ public class AnalisadorSintatico {
         tabela.inicializaTabela();
 
         while (true) {
-            if (pilha.retornaTopo() == "$" && entrada.retornaTopo() == "$") {
-                System.out.println("Sentenca Aceita");
-                break;
-            }
-
             if(pilha.retornaTopo().equals("ε")){
                 System.out.println("desempilhou pilha "+ pilha.retornaTopo());
                 pilha.pop();
+            }
+
+            if (pilha.retornaTopo() == "$" && entrada.retornaTopo() == "$") {
+                System.out.println("Sentenca Aceita");
+                break;
             }
 
             if (pilha.retornaTopo().equals(entrada.retornaTopo()) || pilha.retornaTopo().equals(entrada.retornaTopo())) {
@@ -61,8 +65,14 @@ public class AnalisadorSintatico {
             } else {
                 System.out.println("pilha: "+pilha.retornaTopo()+" entrada: " + entrada.retornaTopo());
                 String sentenca = tabela.buscaSentenca(pilha.retornaTopo(), entrada.retornaTopo());
+                System.out.println(sentenca);
+                if (sentenca == null) {
+                    //Tratamento de erros e etc
+                    System.out.println(sentenca);
+                    break;
+                }
 
-                if (sentenca.equals("ERRO_Deu_pau.txt_socorro")) {
+                if(sentenca.equals("ERRO_Deu_pau.txt_socorro")){
                     System.out.println(sentenca);
                     break;
                 } else {

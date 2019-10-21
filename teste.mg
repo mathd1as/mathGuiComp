@@ -1,6 +1,6 @@
-int a = 0;
-int b = 5;
+int a = 5;
+int b = 6;
 
-if(a == b){
-    a = 7.1;
+for (a = 4; a < 5; a = a +1){
+    print("teste")
 }

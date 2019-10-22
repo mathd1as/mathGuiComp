@@ -132,11 +132,12 @@ public class TabelaPreditiva {
         this.tabela[4][14] = "<print>";
 
         //<declara_var>
-        this.tabela[5][5] = "int <var> <instancia_int> <mais_var_int> ;";
+        this.tabela[5][5] = "int <var> <instancia_int> <exp_2> ;";
         this.tabela[5][6] = "float <var> <instancia_float> <mais_var_float> ;";
         this.tabela[5][7] = "bool <var> <instancia_bool> <mais_var_bool> ;";
 
         //<instancia_int>
+        this.tabela[6][19] = "ε";
         this.tabela[6][20] = "ε";
         this.tabela[6][27] = "= <instancia_int_2>";
 
@@ -146,10 +147,10 @@ public class TabelaPreditiva {
 
         //<mais_var_int>
         this.tabela[8][19] = "ε";
-        this.tabela[8][4] = ", <var> <instancia_int> <mais_var_int>";
+        this.tabela[8][20] = ", <var> <instancia_int> <mais_var_int>";
 
         //<instancia_float>
-        this.tabela[9][20] = "ε";
+        this.tabela[9][19] = "ε";
         this.tabela[9][27] = "= <instancia_float_2>";
 
         //<instancia_float_2>
@@ -161,7 +162,7 @@ public class TabelaPreditiva {
         this.tabela[11][20] = ", <var> <instancia_float> <mais_var_float>";
 
         //<instancia_bool>
-        this.tabela[12][20] = "ε";
+        this.tabela[12][19] = "ε";
         this.tabela[12][27] = "= <instancia_bool_2>";
 
         //<instancia_bool_2>
@@ -182,8 +183,18 @@ public class TabelaPreditiva {
         this.tabela[16][33] = "<op_logico> <exp_relacional> <opt>";
 
         //<cmd_elif>
-        this.tabela[17][9] = "ε";
-        this.tabela[17][10] = "elif ( <exp_relacional> <opt>) { <stmt> } <cmd_elif>";
+        this.tabela[17][4] = "ε";
+        this.tabela[17][5] = "ε";
+        this.tabela[17][6] = "ε";
+        this.tabela[17][7] = "ε";
+        this.tabela[17][8] = "ε";
+        this.tabela[17][11] = "ε";
+        this.tabela[17][12] = "ε";
+        this.tabela[17][7] = "ε";
+        this.tabela[17][13] = "ε";
+        this.tabela[17][14] = "ε";
+        this.tabela[17][18] = "ε";
+        this.tabela[17][10] = "elif ( <exp_relacional> <opt> ) { <stmt> } <cmd_elif>";
         this.tabela[17][34] = "ε";
 
         //<cmd_else>
@@ -201,11 +212,12 @@ public class TabelaPreditiva {
         this.tabela[18][34] = "ε";
 
         //<atribui>
-        this.tabela[19][4] = "<var> = <atribui_2> ;";
+        this.tabela[19][4] = "<var> = <atribui_2> <exp_2> ;";
 
         //<atribui_2>
         this.tabela[20][2] = "<natural>";
         this.tabela[20][3] = "<real>";
+        this.tabela[20][4] = "<var>";
         this.tabela[20][15] = "verdadeiro";
         this.tabela[20][16] = "falso";
 
@@ -216,7 +228,7 @@ public class TabelaPreditiva {
         this.tabela[22][12] = "while ( <exp_relacional> <opt> ) { <stmt> }";
 
         //<scan>
-        this.tabela[23][13] = "scan ( <tipo> , <var>) ;";
+        this.tabela[23][13] = "scan ( <tipo> <var> ) ;";
 
         //<tipo>
         this.tabela[24][5] = "int";
@@ -227,15 +239,25 @@ public class TabelaPreditiva {
         this.tabela[25][14] = "print ( <print_stmt> ) ;";
 
         //<print_stmt>
+        this.tabela[26][2] = "<natural> <print_stmt_2>";
+        this.tabela[26][3] = "<real> <print_stmt_2>";
         this.tabela[26][4] = "<var> <print_stmt_2>";
+        this.tabela[26][15] = "verdadeiro <print_stmt_2>";
+        this.tabela[26][16] = "falso <print_stmt_2>";
         this.tabela[26][35] = "\" <id> \" <print_stmt_2>";
 
         //<print_stmt_2>
+        this.tabela[27][2] = "<natural> <print_stmt_2>";
+        this.tabela[26][3] = "<real> <print_stmt_2>";
         this.tabela[27][17] = "ε";
         this.tabela[27][28] = "+ <print_stmt_3>";
 
         //<print_stmt_3>
         this.tabela[28][4] = "<var> <print_stmt_2>";
+        this.tabela[28][2] = "<natural> <print_stmt_2>";
+        this.tabela[28][3] = "<real> <print_stmt_2>";
+        this.tabela[28][15] = "verdadeiro <print_stmt_2>";
+        this.tabela[28][16] = "falso <print_stmt_2>";
         this.tabela[28][35] = "\" <id> \" <print_stmt_2>";
 
         //<exp_relacional>
@@ -281,6 +303,7 @@ public class TabelaPreditiva {
         this.tabela[35][14] = "ε";
         this.tabela[35][17] = "ε";
         this.tabela[35][18] = "ε";
+        this.tabela[35][19] = "ε";
         this.tabela[35][28] = "<op_aritmetico> <exp>";
         this.tabela[35][29] = "<op_aritmetico> <exp>";
         this.tabela[35][30] = "<op_aritmetico> <exp>";

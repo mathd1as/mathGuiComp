@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2bacc13b-008b-4c5b-9b00-4323ca23aa83" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MathGuiComp/AnalisadorSintatico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathGuiComp/AnalisadorSintatico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MathGuiComp/TabelaPreditiva.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathGuiComp/TabelaPreditiva.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AnalisadorLexico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AnalisadorLexico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AnalisadorSintatico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AnalisadorSintatico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TabelaPreditiva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TabelaPreditiva.java" afterDir="false" />
@@ -40,12 +43,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="263" />
-    <option name="y" value="25" />
-    <option name="width" value="683" />
-    <option name="height" value="738" />
   </component>
   <component name="ProjectId" id="1SVt43tcfUt7aRNkeJiDvyy8Pqt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -112,6 +109,8 @@
       <workItem from="1554168575018" duration="4553000" />
       <workItem from="1571660402854" duration="2211000" />
       <workItem from="1571669922621" duration="4428000" />
+      <workItem from="1571761867672" duration="3897000" />
+      <workItem from="1571772703628" duration="5291000" />
     </task>
     <servers />
   </component>

@@ -128,7 +128,7 @@ public class AnalisadorLexico {
              default:
                  //Algum tratamento de erro aqui posteriormente
         }
-        
+        System.out.println("simbolo: "+simbolo);
         if (this.simbolos.contains(proxSimbolo)) {
             simbolo.setValor(proxSimbolo);
         }

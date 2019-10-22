@@ -16,7 +16,7 @@ public class AnalisadorSintatico {
         pilha.push("<program>");
 
         entrada.push("$");
-        //Erro ta aqui...
+
         for (int i = tokens.size() -1  ; i >= 0; i--) {
 
             if(tokens.get(i).getAtributo().equals("var")){
@@ -30,25 +30,22 @@ public class AnalisadorSintatico {
             }else if(tokens.get(i).getValor().equals("print")){
                 entrada.push("print");
             }else if(tokens.get(i).getValor().equals("scan")){
-                entrada.push("<scan>");
+                entrada.push("scan");
             } else {
                 entrada.push(tokens.get(i).getValor());
             }
+            System.out.println("entrada: "+entrada.retornaTopo());
         }
-
-        /*while(!entrada.pilhaVazia()){
-            System.out.println(entrada.retornaTopo());
-            entrada.pop();
-        }*/
-
 
         TabelaPreditiva tabela = new TabelaPreditiva();
         tabela.inicializaTabela();
 
         while (true) {
+            //while(pilha.retornaTopo().equals("ε"))
             if(pilha.retornaTopo().equals("ε")){
                 System.out.println("desempilhou pilha "+ pilha.retornaTopo());
                 pilha.pop();
+
             }
 
             if (pilha.retornaTopo() == "$" && entrada.retornaTopo() == "$") {
@@ -76,7 +73,7 @@ public class AnalisadorSintatico {
                     System.out.println(sentenca);
                     break;
                 } else {
-                    System.out.println("desempilhou "+pilha.retornaTopo());
+                    //System.out.println("desempilhou "+pilha.retornaTopo());
                     pilha.pop();
 
                     int tam = 0;
@@ -97,7 +94,7 @@ public class AnalisadorSintatico {
 
                         for (int i = tam; i >= 0; i--) {
 
-                            System.out.println("empilhou pilha "+aux[i]);
+                            //System.out.println("empilhou pilha "+aux[i]);
                             pilha.push(aux[i]);
                         }
                     }

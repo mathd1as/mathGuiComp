@@ -19,22 +19,21 @@ public class Main {
             List<String> palavrasReservadas = Arrays.asList("int", "float", "bool", "if", "else", "for",
                     "while", "print", "scan", "elif", "verdadeiro", "falso");
             List<String> simbolos = Arrays.asList("(",")","{","}","=",":",";",",");
-            List<String> operadores = Arrays.asList("&&","||","==","<=","<",">=",">","!=","++","--");
+            List<String> operadores = Arrays.asList("&&","||","==","<=","<",">=",">","!=");
 
             AnalisadorLexico lexico = new AnalisadorLexico(arquivo, palavrasReservadas, simbolos, operadores);
             List<Token> tokens = lexico.analisar();
-            AnalisadorSintatico sintatico = new AnalisadorSintatico(tokens);
-            sintatico.an_sintatico();
-
             /*for (int i=0;i < tokens.size(); i++){
                 System.out.println("Atributo: "+tokens.get(i).getAtributo());
                 System.out.println("Valor: "+tokens.get(i).getValor());
                 System.out.println("Linha: "+tokens.get(i).getLinha());
-                if(tokens.get(i).getErro() != ""){
-                    System.out.println("Erro msg: "+tokens.get(i).getErro());
-                }
                 System.out.println();
             }*/
+
+            AnalisadorSintatico sintatico = new AnalisadorSintatico(tokens);
+
+            sintatico.an_sintatico();
+
 
         }
     }

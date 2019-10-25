@@ -41,7 +41,6 @@ public class AnalisadorSintatico {
         TabelaPreditiva tabela = new TabelaPreditiva();
         tabela.inicializaTabela();
         Token Terro = new Token("teste", "teste", 5);
-        System.out.println("teste");
         while (true) {
             //System.out.println("pilha: "+pilha.retornaTopo());
             //System.out.println("entrada: "+entrada.retornaTopo());
@@ -129,7 +128,7 @@ public class AnalisadorSintatico {
                             System.out.print("Era esperado um ) na linha ");
                             break;
                         case "<qual>":
-                            System.out.print("Era esperado uma variavel ou um numero natual na linha ");
+                            System.out.print("Era esperado uma variavel ou um numero natural na linha ");
                             break;
                         default:
                             System.out.print("Erro na linha ");
@@ -142,11 +141,10 @@ public class AnalisadorSintatico {
                 }
 
                 if(sentenca.equals("ERRO_Deu_pau.txt_socorro")){
-                    System.out.println("if 2");
 
                     switch (pilha.retornaTopo()){
                         case "<var>":
-                            System.out.println("Era esperado uma variavel");
+                            System.out.println("Era esperado uma variavel na linha ");
                             break;
                         case "(":
                             System.out.println("Era esperado um ( na linha ");

@@ -118,6 +118,7 @@ public class TabelaPreditiva {
         this.tabela[3][12] = "<stmt_list>";
         this.tabela[3][13] = "<stmt_list>";
         this.tabela[3][14] = "<stmt_list>";
+        this.tabela[3][18] = "ε";
         this.tabela[3][34] = "ε";
 
         //<stmt>
@@ -175,7 +176,7 @@ public class TabelaPreditiva {
         this.tabela[14][20] = ", <var> <instancia_bool> <mais_var_bool>";
 
         //<if_stmt>
-        this.tabela[15][8] = "if ( <exp_relacional> <opt> ) { <stmt> } <cmd_elif> <cmd_else>";
+        this.tabela[15][8] = "if ( <exp_relacional> <opt> ) { <stmt_list> } <cmd_elif> <cmd_else>";
 
         //<opt>
         this.tabela[16][17] = "ε";
@@ -194,7 +195,7 @@ public class TabelaPreditiva {
         this.tabela[17][13] = "ε";
         this.tabela[17][14] = "ε";
         this.tabela[17][18] = "ε";
-        this.tabela[17][10] = "elif ( <exp_relacional> <opt> ) { <stmt> } <cmd_elif>";
+        this.tabela[17][10] = "elif ( <exp_relacional> <opt> ) { <stmt_list> } <cmd_elif>";
         this.tabela[17][34] = "ε";
 
         //<cmd_else>
@@ -203,7 +204,7 @@ public class TabelaPreditiva {
         this.tabela[18][6] = "ε";
         this.tabela[18][7] = "ε";
         this.tabela[18][8] = "ε";
-        this.tabela[18][9] = "else { <stmt> }";
+        this.tabela[18][9] = "else { <stmt_list> }";
         this.tabela[18][11] = "ε";
         this.tabela[18][12] = "ε";
         this.tabela[18][13] = "ε";
@@ -222,10 +223,10 @@ public class TabelaPreditiva {
         this.tabela[20][16] = "falso";
 
         //<for_stmt>
-        this.tabela[21][11] = "for ( <var> = <instancia_int_2> ; <exp_relacional> ; <exp_aritmetica> ) { <stmt> }";
+        this.tabela[21][11] = "for ( <var> = <instancia_int_2> ; <exp_relacional> ; <exp_aritmetica> ) { <stmt_list> }";
 
         //<while_stmt>
-        this.tabela[22][12] = "while ( <exp_relacional> <opt> ) { <stmt> }";
+        this.tabela[22][12] = "while ( <exp_relacional> <opt> ) { <stmt_list> }";
 
         //<scan>
         this.tabela[23][13] = "scan ( <tipo> <var> ) ;";

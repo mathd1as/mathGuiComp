@@ -95,7 +95,7 @@ public class AnalisadorSintatico {
                             System.out.print("Era esperado um \"verdadeiro\" ou \"falso\""+" na linha ");
                             break;
                         case "<cmd_elif>":
-                            System.out.print("Era esperado um stmt na linha ");
+                            System.out.print("Era esperado um stmt éééé na linha ");
                             break;
                         case "<cmd_else>":
                             System.out.print("Era esperado um stmt na linha ");

@@ -49,7 +49,7 @@ public class TabelaPreditiva {
         this.tabela[35][0] = "<exp_2>";
         this.tabela[36][0] = "<op_aritmetico>";
 
-        //termianis
+        //terminais
         this.tabela[0][1] = "<id>";
         this.tabela[0][2] = "<natural>";
         this.tabela[0][3] = "<real>";
@@ -189,6 +189,7 @@ public class TabelaPreditiva {
         this.tabela[17][6] = "ε";
         this.tabela[17][7] = "ε";
         this.tabela[17][8] = "ε";
+        this.tabela[17][9] = "ε";
         this.tabela[17][11] = "ε";
         this.tabela[17][12] = "ε";
         this.tabela[17][7] = "ε";

@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bacc13b-008b-4c5b-9b00-4323ca23aa83" name="Default" comment="Arrumei os stmts">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathGuiComp/AnalisadorLexico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathGuiComp/AnalisadorLexico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathGuiComp/AnalisadorSintatico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathGuiComp/AnalisadorSintatico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MathGuiComp/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathGuiComp/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MathGuiComp/TabelaPreditiva.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MathGuiComp/TabelaPreditiva.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AnalisadorSintatico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AnalisadorSintatico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TabelaPreditiva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TabelaPreditiva.java" afterDir="false" />
@@ -45,6 +41,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="OsamaCC &lt;guilhermefelipework@gmail.com&gt;" />
         <option value="OsamaCC" />
         <option value="guilherme.felipe@unioeste.br" />
       </list>
@@ -131,8 +128,16 @@
       <workItem from="1571669922621" duration="4428000" />
       <workItem from="1571761867672" duration="3897000" />
       <workItem from="1571772703628" duration="5291000" />
-      <workItem from="1571966912983" duration="2406000" />
+      <workItem from="1571966912983" duration="2975000" />
     </task>
+    <task id="LOCAL-00001" summary="Arrumei os stmts">
+      <created>1571969456158</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571969456159</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

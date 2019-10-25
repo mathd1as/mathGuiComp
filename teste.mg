@@ -10,6 +10,18 @@ while (what == 5)
  print (oi);
   int hello;
 }
+
+if(a > b){
+ print (oi);
+ print(bye);
+}elif(a > d){
+ print(que);
+  print(ijo);
+
+}else{
+  print(VAI);
+   print(bye);
+}
 int c = 5;
 
 

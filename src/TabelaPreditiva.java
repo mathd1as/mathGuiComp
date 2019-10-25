@@ -271,6 +271,7 @@ public class TabelaPreditiva {
         //Adiconei <natural> pq antes ele so derivava para id, como tratamos os numeros como naturais e neste campo
         //e esperado um int nao e nescessario ter um id que siguinifica qlq coisa
         this.tabela[30][2] = "<natural>";
+        this.tabela[30][3] = "<real>";
         this.tabela[30][4] = "<var>";
 
         //<op_relacional>
@@ -291,6 +292,7 @@ public class TabelaPreditiva {
         //<exp>
         this.tabela[34][1] = "<qual> <exp_2>";
         this.tabela[34][2] = "<qual> <exp_2>";
+        this.tabela[34][3] = "<qual> <exp_2>";
         this.tabela[34][4] = "<qual> <exp_2>";
 
         //<exp_2>

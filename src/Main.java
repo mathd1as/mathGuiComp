@@ -23,16 +23,18 @@ public class Main {
 
             AnalisadorLexico lexico = new AnalisadorLexico(arquivo, palavrasReservadas, simbolos, operadores);
             List<Token> tokens = lexico.analisar();
-            /*for (int i=0;i < tokens.size(); i++){
+
+            /*for(int i=0; i<tokens.size()-1; i++){
                 System.out.println("Atributo: "+tokens.get(i).getAtributo());
                 System.out.println("Valor: "+tokens.get(i).getValor());
-                System.out.println("Linha: "+tokens.get(i).getLinha());
                 System.out.println();
             }*/
 
-            AnalisadorSintatico sintatico = new AnalisadorSintatico(tokens);
 
-            sintatico.an_sintatico();
+            AnalisadorSemantico semantico = new  AnalisadorSemantico(tokens);
+            String aux =  semantico.an_semantico();
+            System.out.println(aux);
+
 
 
         }

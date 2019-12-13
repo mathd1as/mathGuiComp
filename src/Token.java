@@ -3,11 +3,13 @@ public class Token {
     private String valor;
     private String erro = "";
     private int linha;
+    private String tipo;
 
     public Token(String atributo, String valor, int linha) {
         this.atributo = atributo;
         this.valor = valor;
         this.linha = linha;
+        this.tipo = "nulo";
     }
 
     public String getAtributo() {
@@ -26,6 +28,10 @@ public class Token {
         return this.erro;
     }
 
+    public String getTipo() {
+        return this.tipo;
+    }
+
     public void setAtributo(String atributo) {
         this.atributo = atributo;
     }
@@ -40,5 +46,9 @@ public class Token {
 
     public void setLinha(int linha) {
         this.linha = linha;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }

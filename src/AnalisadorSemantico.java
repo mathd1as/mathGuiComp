@@ -1,130 +1,120 @@
 import java.util.ArrayList;
-import java.util.Stack;
 import java.util.List;
 
 public class AnalisadorSemantico {
     private List<Token> tokens;
-    private List<Token> varDeclaradas;
 
     AnalisadorSemantico(List<Token> tokens) {
         this.tokens = tokens;
-        this.varDeclaradas = varDeclaradas;
     }
 
     public String an_semantico() {
+        List<String> varDeclaradasValor = new ArrayList<>();
+        List<String> varDeclaradasCadeia = new ArrayList<>();
+        List<String> varDeclaradasTipo = new ArrayList<>();
 
-        List<Token> varDeclaradas = new ArrayList<Token>();
+        for (int i = 0; i < tokens.size(); i++) {
 
-        for (int i = 0; i < this.tokens.size() - 1; i++) {
-            switch (this.tokens.get(i).getValor()) {
-                case "bool":
-                    if (this.tokens.get(i + 2).getValor().equals(";")) {
-                        if (varDeclaradas.contains(this.tokens.get(i + 1))) {
-                            return "Erro - Variavel ja declarada";
-                        } else {
-                            if (this.tokens.get(i + 1).getTipo().equals("nulo")) {
-                                this.tokens.get(i + 1).setTipo("bool");
-                            }
-                            varDeclaradas.add(this.tokens.get(i + 1));
-                        }
-                    } else if (this.tokens.get(i + 3).equals("verdadeiro") || this.tokens.get(i + 3).equals("falso")) {
-                        if (varDeclaradas.contains(this.tokens.get(i + 1))) {
-                            return "Erro - Variavel ja declarada";
-                        } else {
-                            if (this.tokens.get(i + 1).getTipo().equals("nulo")) {
-                                this.tokens.get(i + 1).setTipo("bool");
-                            }
-                            varDeclaradas.add(this.tokens.get(i + 1));
-                        }
-                    } else {
-                        return "Erro - Era esperado uma variavel do tipo bool";
-                    }
-                    break;
-                case "int":
-                    if (this.tokens.get(i + 2).getValor().equals(";")) {
-                        if (varDeclaradas.contains(this.tokens.get(i + 1))) {
-                            return "Erro - Variavel ja declarada";
-                        } else {
-                            if (this.tokens.get(i + 1).equals("nulo")) {
-                                this.tokens.get(i + 1).setTipo("int");
-                            }
-                            varDeclaradas.add(this.tokens.get(i + 1));
-                        }
-                    } else if (this.tokens.get(i + 3).getAtributo().equals("int")) {
-                        if (varDeclaradas.contains(this.tokens.get(i + 1))) {
-                            return "Erro - Variavel ja declarada";
-                        } else {
-                            if (this.tokens.get(i + 1).getTipo().equals("nulo")) {
-                                this.tokens.get(i + 1).setTipo("int");
-                            }
-                            varDeclaradas.add(this.tokens.get(i + 1));
-                        }
-                    } else {
-                        return "Erro - Era esperado uma variavel do tipo int";
-                    }
-                    break;
-                case "float":
-                    if (this.tokens.get(i + 2).getValor().equals(";")) {
-                        if (varDeclaradas.contains(this.tokens.get(i + 1).getValor())) {
-                            return "Erro - Variavel ja declarada";
-                        } else {
-                            if (this.tokens.get(i + 1).equals("nulo")) {
-                                this.tokens.get(i + 1).setTipo("float");
-                            }
-                            varDeclaradas.add(this.tokens.get(i + 1));
-                        }
-                    } else if (this.tokens.get(i + 3).getAtributo().equals("float")) {
-                        if (varDeclaradas.contains(this.tokens.get(i + 1).getValor())) {
-                            return "Erro - Variavel ja declarada";
-                        } else {
-                            if (this.tokens.get(i + 1).getTipo().equals("nulo")) {
-                                this.tokens.get(i + 1).setTipo("float");
-                            }
-                            varDeclaradas.add(this.tokens.get(i + 1));
-                        }
-                    } else {
-                        return "Erro - Era esperado uma variavel do tipo float";
-                    }
-                    break;
-                default:
-                    //System.out.println("Nao caiu em lugar nenhum");
-                    break;
-            }
+            if ((tokens.get(i).getValor().equals("int") ||
+                    tokens.get(i).getValor().equals("float") ||
+                    tokens.get(i).getValor().equals("bool")) && (tokens.get(i + 2).getValor().equals(";"))) {
 
-           /*for(int j=0; j<varDeclaradas.size(); j++){
-               System.out.println("Tipo "+varDeclaradas.get(j).getTipo());
-               System.out.println("Valor "+varDeclaradas.get(j).getValor());
-           }
-            System.out.println();*/
-
-
-            if (this.tokens.get(i).getAtributo().equals("var")) {
-
-                System.out.println();
-                if ((!this.tokens.get(i - 1).getAtributo().equals("int") ||
-                        !this.tokens.get(i - 1).getAtributo().equals("float") ||
-                        !this.tokens.get(i - 1).getAtributo().equals("bool"))) {
-                    System.out.println("token valor " + this.tokens.get(i - 1).getValor());
-                    //System.out.println("token "+this.tokens.get(i).getValor());
-                    for (int j = 0; j < varDeclaradas.size(); j++) {
-                        if (!varDeclaradas.get(j).getValor().equals(this.tokens.get(i).getValor())) {
-                            return "Erro - A variavel nao foi declarada";
-                        } else {
-                            this.tokens.get(i).setTipo(varDeclaradas.get(j).getTipo());
-                            if (!this.tokens.get(i).getTipo().equals(this.tokens.get(i + 2).getAtributo())) {
-                                return "Erro - Era eseprado um valor do tipo " + this.tokens.get(i).getTipo() +
-                                        " mas foi encontrado um valor do tipo " + this.tokens.get(i + 2).getAtributo();
-                            } else {
-                                break;
-                            }
-                        }
-                    }
+                if (!varDeclaradasValor.contains(tokens.get(i + 1).getValor())) {
+                    varDeclaradasValor.add(tokens.get(i + 1).getValor());
+                    varDeclaradasCadeia.add("");
+                    varDeclaradasTipo.add(tokens.get(i).getValor());
+                } else {
+                    return "ERRO - A variavel " + tokens.get(i + 1).getValor() + " ja foi declarada";
                 }
 
+            }
+
+            if (tokens.get(i).getValor().equals("=")) {
+                if (this.verifica_token_var(i)) {
+
+                    if (!varDeclaradasValor.contains(tokens.get(i - 1).getValor())) {
+
+                        if (tokens.get(i - 2).getValor().equals("int") && tokens.get(i + 1).getAtributo().equals("int")) {
+                            varDeclaradasValor.add(tokens.get(i - 1).getValor());
+                            varDeclaradasCadeia.add(tokens.get(i + 1).getValor());
+                            varDeclaradasTipo.add(tokens.get(i - 2).getValor());
+
+
+                        } else if (tokens.get(i - 2).getValor().equals("float") && tokens.get(i + 1).getAtributo().equals("float")) {
+                            varDeclaradasValor.add(tokens.get(i - 1).getValor());
+                            varDeclaradasCadeia.add(tokens.get(i + 1).getValor());
+                            varDeclaradasTipo.add(tokens.get(i - 2).getValor());
+
+                        } else if (tokens.get(i - 2).getValor().equals("bool") && tokens.get(i + 1).getAtributo().equals("Palavra Reservada")) {
+                            varDeclaradasValor.add(tokens.get(i - 1).getValor());
+                            varDeclaradasCadeia.add(tokens.get(i + 1).getValor());
+                            varDeclaradasTipo.add(tokens.get(i - 2).getValor());
+
+                        } else {
+                            return "ERRO - A variavel " + tokens.get(i - 1).getValor() + " nao foi declarada ou nao corresponde a tipagem correta.";
+                        }
+                    } else {
+                        if (tokens.get(i - 2).getValor().equals("int") ||
+                                tokens.get(i - 2).getValor().equals("float") ||
+                                tokens.get(i - 2).getValor().equals("bool")) {
+
+                            return "ERRO - A variavel " + tokens.get(i - 1).getValor() + " ja foi declarada";
+                        } else {
+                            if (tokens.get(i + 2).getValor().equals(";")) {
+                                int indice = 0;
+
+                                if (varDeclaradasValor.contains(tokens.get(i - 1).getValor())) {
+                                    indice = varDeclaradasValor.indexOf(tokens.get(i - 1).getValor());
+                                } else {
+                                    return "ERRO - A variavel " + tokens.get(i - 1).getValor() + " nao foi declarada.";
+                                }
+
+                                if (tokens.get(i + 1).getAtributo().equals("int") && varDeclaradasTipo.get(indice).equals("int")) {
+                                    varDeclaradasCadeia.add(indice, tokens.get(i + 1).getValor());
+                                } else if (tokens.get(i + 1).getAtributo().equals("float") && varDeclaradasTipo.get(indice).equals("float")) {
+                                    varDeclaradasCadeia.add(indice, tokens.get(i + 1).getValor());
+                                } else if (tokens.get(i + 1).getAtributo().equals("Palavra Reservada") && varDeclaradasTipo.get(indice).equals("bool")) {
+                                    if (tokens.get(i + 1).getValor().equals("verdadeiro")) {
+                                        varDeclaradasCadeia.add(indice, tokens.get(i + 1).getValor());
+                                    } else if (tokens.get(i + 1).getValor().equals("falso")) {
+                                        varDeclaradasCadeia.add(indice, tokens.get(i + 1).getValor());
+                                    }
+                                }else if(tokens.get(i + 1).getAtributo().equals("var")){
+                                    int indice2 = 0;
+
+                                    if (varDeclaradasValor.contains(tokens.get(i + 1).getValor())) {
+                                        indice2 = varDeclaradasValor.indexOf(tokens.get(i + 1).getValor());
+                                    } else {
+                                        return "ERRO - A variavel " + tokens.get(i - 1).getValor() + " nao foi declarada.";
+                                    }
+
+                                    if(varDeclaradasTipo.get(indice).equals(varDeclaradasTipo.get(indice2))){
+                                        //da tudo certo
+                                    }else{
+                                        return "ERRO - A variavel " + tokens.get(i + 1).getValor() + " nao foi declarada.";
+                                    }
+                                }else{
+                                    return "ERRO - Tipagem incompativel";
+                                }
+                            }else{
+                                //tratar expressoes
+                            }
+                        }
+                    }
+                } else {
+                    return "ERRO - Era esperado um token do atributo VAR, porem foi passado um token do atributo " +
+                            tokens.get(i - 1).getAtributo();
+                }
             }
         }
         return "Sentenca semantica aceita";
     }
 
-
+    public boolean verifica_token_var(int i) {
+        if (tokens.get(i - 1).getAtributo().equals("var")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

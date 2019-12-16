@@ -32,8 +32,9 @@ public class Main {
 
 
             AnalisadorSemantico semantico = new  AnalisadorSemantico(tokens);
-            String aux =  semantico.an_semantico();
+            String aux = semantico.an_semantico();
             System.out.println(aux);
+
 
 
 

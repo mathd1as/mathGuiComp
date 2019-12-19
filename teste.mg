@@ -1,20 +1,7 @@
+int c = 1;
+int d = 5;
 
-
-int a = 5;
-
-int b;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if(c < d){
+    int a = 1;
+    int b = 5;
+}
